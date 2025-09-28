@@ -20,7 +20,7 @@ body {
 
 /* Хедер */
 .header {
-    background: #fff;
+    background: #b5a0b6;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
@@ -38,7 +38,7 @@ body {
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: #054b92;
 }
 
 .nav-list {
