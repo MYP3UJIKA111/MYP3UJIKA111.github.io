@@ -1,32 +1,24 @@
 <!DOCTYPE html>
-
 <html lang="ru">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Настюха - Frontend разработчик</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-            <!-- Добавьте в header после навигации -->
-        <header class="header">
-            <nav class="nav">
-                <div class="logo">Настюха</div>
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-btn">Главная</a></li>
-                    <li><a href="about.html" class="nav-btn">Обо мне</a></li>
-                    <li><a href="projects.html" class="nav-btn">Проекты</a></li>
-                    <li><a href="contact.html" class="nav-btn">Контакты</a></li>
-                </ul>
-                <!-- Кнопка переключения темы -->
-                <button id="theme-toggle" class="theme-btn">🌙</button>
-            </nav>
-        </header>
-
-
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">Настюха</div>
+            <ul class="nav-list">
+                <li><a href="index.html" class="nav-btn">Главная</a></li>
+                <li><a href="about.html" class="nav-btn">Обо мне</a></li>
+                <li><a href="projects.html" class="nav-btn">Проекты</a></li>
+                <li><a href="contact.html" class="nav-btn">Контакты</a></li>
+            </ul>
+            <button id="theme-toggle" class="theme-btn">🌙</button>
+        </nav>
+    </header>
 
     <section class="hero">
         <div class="hero-content">
@@ -85,6 +77,11 @@
                     <p>Веб-приложение для ведения блога</p>
                     <a href="projects.html" class="btn">Все проекты</a>
                 </div>
+                <div class="project-card">
+                    <h3>Портфолио сайт</h3>
+                    <p>Адаптивный сайт с современным дизайном</p>
+                    <a href="projects.html" class="btn">Все проекты</a>
+                </div>
             </div>
         </div>
     </section>
@@ -95,41 +92,65 @@
             <div class="contact-info">
                 <p>Email: nastya@example.com</p>
                 <p>GitHub: github.com/nastyaha</p>
+                <p>Telegram: @nastyaha</p>
             </div>
         </div>
     </section>
 
-    // Добавьте в конец body перед закрывающим тегом </body>
-<script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const currentTheme = localStorage.getItem('theme');
-    
-    // Проверяем сохранённую тему
-    if (currentTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        themeToggle.textContent = '☀️';
-    }
-    
-    // Обработчик клика по кнопке
-    themeToggle.addEventListener('click', function() {
-        let theme = 'light';
-        if (document.documentElement.getAttribute('data-theme') !== 'dark') {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeToggle.textContent = '☀️';
-            theme = 'dark';
-        } else {
-            document.documentElement.removeAttribute('data-theme');
-            themeToggle.textContent = '🌙';
-            theme = 'light';
-        }
-        
-        // Сохраняем выбор в localStorage
-        localStorage.setItem('theme', theme);
-    });
-</script>
-
     <footer class="footer">
         <p>&copy; 2024 Настюха. Все права защищены.</p>
     </footer>
+
+    <script>
+        // Темная тема
+        const themeToggle = document.getElementById('theme-toggle');
+        
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+                enableDarkTheme();
+            } else {
+                enableLightTheme();
+            }
+        }
+        
+        function enableDarkTheme() {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+            localStorage.setItem('theme', 'dark');
+        }
+        
+        function enableLightTheme() {
+            document.documentElement.removeAttribute('data-theme');
+            themeToggle.textContent = '🌙';
+            localStorage.setItem('theme', 'light');
+        }
+        
+        initTheme();
+        
+        themeToggle.addEventListener('click', function() {
+            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+                enableDarkTheme();
+            } else {
+                enableLightTheme();
+            }
+        });
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    enableDarkTheme();
+                } else {
+                    enableLightTheme();
+                }
+            }
+        });
+
+        // Обновление года в футере
+        document.querySelector('.footer p').innerHTML = 
+            `&copy; ${new Date().getFullYear()} Настюха. Все права защищены.`;
+    </script>
 </body>
 </html>
