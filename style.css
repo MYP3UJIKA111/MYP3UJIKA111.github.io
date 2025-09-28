@@ -327,6 +327,30 @@ h2 {
     margin-top: 3rem;
 }
 
+/* Стили для темной темы */
+body.dark-theme {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+body.dark-theme .header {
+    background: #333;
+}
+
+body.dark-theme .project-card {
+    background: #444;
+    color: #fff;
+}
+
+.theme-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .nav {
