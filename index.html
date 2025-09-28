@@ -11,20 +11,21 @@
 
 <body>
 
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">Настюха</div>
-            <ul class="nav-list">
-                <li><a href="index.html" class="nav-btn">Главная</a></li>
-                <li><a href="about.html" class="nav-btn">Обо мне</a></li>
-                <li><a href="projects.html" class="nav-btn">Проекты</a></li>
-                <li><a href="contact.html" class="nav-btn">Контакты</a></li>
-            </ul>
-        </nav>
-    </header>
+            <!-- Добавьте в header после навигации -->
+        <header class="header">
+            <nav class="nav">
+                <div class="logo">Настюха</div>
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-btn">Главная</a></li>
+                    <li><a href="about.html" class="nav-btn">Обо мне</a></li>
+                    <li><a href="projects.html" class="nav-btn">Проекты</a></li>
+                    <li><a href="contact.html" class="nav-btn">Контакты</a></li>
+                </ul>
+                <!-- Кнопка переключения темы -->
+                <button id="theme-toggle" class="theme-btn">🌙</button>
+            </nav>
+        </header>
 
-
-    <button id="theme-toggle" class="theme-btn">Темная тема</button>
 
 
     <section class="hero">
@@ -97,6 +98,35 @@
             </div>
         </div>
     </section>
+
+    // Добавьте в конец body перед закрывающим тегом </body>
+<script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const currentTheme = localStorage.getItem('theme');
+    
+    // Проверяем сохранённую тему
+    if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
+    }
+    
+    // Обработчик клика по кнопке
+    themeToggle.addEventListener('click', function() {
+        let theme = 'light';
+        if (document.documentElement.getAttribute('data-theme') !== 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+            theme = 'dark';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            themeToggle.textContent = '🌙';
+            theme = 'light';
+        }
+        
+        // Сохраняем выбор в localStorage
+        localStorage.setItem('theme', theme);
+    });
+</script>
 
     <footer class="footer">
         <p>&copy; 2024 Настюха. Все права защищены.</p>

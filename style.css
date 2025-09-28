@@ -4,7 +4,77 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Добавьте в начало style.css */
+:root {
+    /* Светлая тема (по умолчанию) */
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --header-bg: #ffffff;
+    --card-bg: #f8f9fa;
+    --shadow: rgba(0, 0, 0, 0.1);
+    --primary-color: #3498db;
+    --secondary-color: #e74c3c;
+    --border-color: #dddddd;
+}
 
+[data-theme="dark"] {
+    /* Тёмная тема */
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --header-bg: #2d2d2d;
+    --card-bg: #2d2d2d;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --primary-color: #5dade2;
+    --secondary-color: #ec7063;
+    --border-color: #404040;
+}
+
+/* Применяем переменные ко всем элементам */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.header {
+    background: var(--header-bg);
+    box-shadow: 0 2px 5px var(--shadow);
+}
+
+.nav-list a {
+    color: var(--text-color);
+}
+
+.logo {
+    color: var(--text-color);
+}
+
+.skill-item, .project-card, .project-card-large {
+    background: var(--card-bg);
+    box-shadow: 0 5px 15px var(--shadow);
+}
+
+.contact-form input,
+.contact-form textarea {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+}
+
+/* Стили для кнопки темы */
+.theme-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.1);
+}
 /* Основные стили */
 body {
     font-family: 'Arial', sans-serif;
