@@ -1,85 +1,54 @@
 <!DOCTYPE html>
-<!-- Указывает тип документа как HTML5 -->
 <html lang="ru">
-<!-- Открывающий тег HTML с указанием языка страницы (русский) -->
-
 <head>
-    <!-- Мета-информация и ссылки на внешние ресурсы -->
     <meta charset="UTF-8">
-    <!-- Установка кодировки символов в UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Настройка viewport для адаптивного дизайна на мобильных устройствах -->
-    <title>Алексей Петров - Frontend разработчик</title>
-    <!-- Заголовок страницы, отображается во вкладке браузера -->
+    <title>Настюха - Frontend разработчик</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Подключение внешнего CSS-файла -->
 </head>
-
 <body>
-    <!-- Тело страницы, где размещается весь контент -->
-
-    <!-- Хедер (шапка сайта) -->
     <header class="header">
-        <!-- Тег <header> для шапки сайта, класс для стилизации -->
         <nav class="nav">
-            <!-- Навигационное меню -->
-            <div class="logo">Алексей Петров</div>
-            <!-- Логотип или имя сайта -->
+            <div class="logo">Настюха</div>
             <ul class="nav-list">
-                <!-- Список для навигационных ссылок -->
-                <li><a href="#about">Обо мне</a></li>
-                <!-- Элемент списка с ссылкой на секцию "Обо мне" -->
-                <li><a href="#skills">Навыки</a></li>
-                <li><a href="#projects">Проекты</a></li>
-                <li><a href="#contact">Контакты</a></li>
+                <li><a href="index.html" class="nav-btn">Главная</a></li>
+                <li><a href="about.html" class="nav-btn">Обо мне</a></li>
+                <li><a href="projects.html" class="nav-btn">Проекты</a></li>
+                <li><a href="contact.html" class="nav-btn">Контакты</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Герой секция (первая видимая часть, призыв к действию) -->
     <section class="hero">
-        <!-- Секция с классом hero -->
         <div class="hero-content">
-            <!-- Контейнер для содержимого герой-секции -->
             <h1>Frontend разработчик</h1>
-            <!-- Главный заголовок -->
             <p>Создаю современные и адаптивные веб-приложения</p>
-            <!-- Подзаголовок -->
-            <a href="#projects" class="btn">Мои работы</a>
-            <!-- Кнопка-ссылка на секцию проектов -->
+            <div class="hero-buttons">
+                <a href="projects.html" class="btn btn-primary">Мои работы</a>
+                <a href="about.html" class="btn btn-secondary">Обо мне</a>
+            </div>
         </div>
     </section>
 
-    <!-- Секция "Обо мне" -->
     <section id="about" class="about">
-        <!-- Уникальный идентификатор для навигации, класс для стилей -->
         <div class="container">
-            <!-- Контейнер для ограничения ширины и центрирования -->
             <h2>Обо мне</h2>
-            <!-- Заголовок секции -->
             <div class="about-content">
-                <!-- Блок для содержимого секции -->
                 <div class="about-text">
-                    <!-- Текстовый блок -->
-                    <p>Занимаюсь веб-разработкой более 3 лет. Специализируюсь на создании пользовательских интерфейсов с использованием современных технологий.</p>
-                    <p>Люблю превращать сложные задачи в простые и элегантные решения.</p>
+                    <p>Занимаюсь веб-разработкой. Люблю создавать красивые и функциональные интерфейсы.</p>
+                    <p>Постоянно учусь новым технологиям и развиваюсь в IT.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция "Навыки" -->
     <section id="skills" class="skills">
         <div class="container">
             <h2>Навыки</h2>
             <div class="skills-grid">
-                <!-- Сетка для навыков -->
                 <div class="skill-item">
-                    <!-- Элемент навыка -->
                     <h3>HTML/CSS</h3>
-                    <!-- Название навыка -->
                     <p>Semantic HTML, CSS3, Flexbox, Grid</p>
-                    <!-- Описание навыка -->
                 </div>
                 <div class="skill-item">
                     <h3>JavaScript</h3>
@@ -93,47 +62,36 @@
         </div>
     </section>
 
-    <!-- Секция "Проекты" -->
     <section id="projects" class="projects">
         <div class="container">
             <h2>Мои проекты</h2>
             <div class="projects-grid">
-                <!-- Сетка проектов -->
                 <div class="project-card">
-                    <!-- Карточка проекта -->
                     <h3>Интернет-магазин</h3>
-                    <!-- Название проекта -->
                     <p>React-приложение с корзиной покупок</p>
-                    <!-- Описание проекта -->
-                    <a href="#" class="project-link">Посмотреть</a>
-                    <!-- Ссылка на проект -->
+                    <a href="projects.html" class="btn">Все проекты</a>
                 </div>
                 <div class="project-card">
-                    <h3>Панель управления</h3>
-                    <p>Dashboard с аналитикой на Vue.js</p>
-                    <a href="#" class="project-link">Посмотреть</a>
+                    <h3>Личный блог</h3>
+                    <p>Веб-приложение для ведения блога</p>
+                    <a href="projects.html" class="btn">Все проекты</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Секция "Контакты" -->
     <section id="contact" class="contact">
         <div class="container">
             <h2>Контакты</h2>
             <div class="contact-info">
-                <!-- Блок с контактной информацией -->
-                <p>Email: example@mail.com</p>
-                <p>GitHub: github.com/username</p>
+                <p>Email: nastya@example.com</p>
+                <p>GitHub: github.com/nastyaha</p>
             </div>
         </div>
     </section>
 
-    <!-- Футер (подвал сайта) -->
     <footer class="footer">
         <p>&copy; 2024 Настюха. Все права защищены.</p>
-        <!-- Знак копирайта и год -->
     </footer>
 </body>
-
 </html>
