@@ -4,21 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Настюха - Frontend разработчик</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav">
-            <div class="logo">Настюха</div>
-            <ul class="nav-list">
-                <li><a href="index.html" class="nav-btn">Главная</a></li>
-                <li><a href="about.html" class="nav-btn">Обо мне</a></li>
-                <li><a href="projects.html" class="nav-btn">Проекты</a></li>
-                <li><a href="contact.html" class="nav-btn">Контакты</a></li>
-            </ul>
-            <button id="theme-toggle" class="theme-btn">🌙</button>
-        </nav>
-    </header>
 
     <section class="hero">
         <div class="hero-content">
@@ -42,115 +29,5 @@
             </div>
         </div>
     </section>
-
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>Навыки</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <h3>HTML/CSS</h3>
-                    <p>Semantic HTML, CSS3, Flexbox, Grid</p>
-                </div>
-                <div class="skill-item">
-                    <h3>JavaScript</h3>
-                    <p>ES6+, React, Vue.js</p>
-                </div>
-                <div class="skill-item">
-                    <h3>Инструменты</h3>
-                    <p>Git, Webpack, Figma</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Мои проекты</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>Интернет-магазин</h3>
-                    <p>React-приложение с корзиной покупок</p>
-                    <a href="projects.html" class="btn">Все проекты</a>
-                </div>
-                <div class="project-card">
-                    <h3>Личный блог</h3>
-                    <p>Веб-приложение для ведения блога</p>
-                    <a href="projects.html" class="btn">Все проекты</a>
-                </div>
-                <div class="project-card">
-                    <h3>Портфолио сайт</h3>
-                    <p>Адаптивный сайт с современным дизайном</p>
-                    <a href="projects.html" class="btn">Все проекты</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Контакты</h2>
-            <div class="contact-info">
-                <p>Email: nastya@example.com</p>
-                <p>GitHub: github.com/nastyaha</p>
-                <p>Telegram: @nastyaha</p>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <p>&copy; 2024 Настюха. Все права защищены.</p>
-    </footer>
-
-    <script>
-        // Темная тема
-        const themeToggle = document.getElementById('theme-toggle');
-        
-        function initTheme() {
-            const savedTheme = localStorage.getItem('theme');
-            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
-                enableDarkTheme();
-            } else {
-                enableLightTheme();
-            }
-        }
-        
-        function enableDarkTheme() {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            themeToggle.textContent = '☀️';
-            localStorage.setItem('theme', 'dark');
-        }
-        
-        function enableLightTheme() {
-            document.documentElement.removeAttribute('data-theme');
-            themeToggle.textContent = '🌙';
-            localStorage.setItem('theme', 'light');
-        }
-        
-        initTheme();
-        
-        themeToggle.addEventListener('click', function() {
-            if (document.documentElement.getAttribute('data-theme') !== 'dark') {
-                enableDarkTheme();
-            } else {
-                enableLightTheme();
-            }
-        });
-        
-        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-            if (!localStorage.getItem('theme')) {
-                if (e.matches) {
-                    enableDarkTheme();
-                } else {
-                    enableLightTheme();
-                }
-            }
-        });
-
-        // Обновление года в футере
-        document.querySelector('.footer p').innerHTML = 
-            `&copy; ${new Date().getFullYear()} Настюха. Все права защищены.`;
-    </script>
 </body>
 </html>
